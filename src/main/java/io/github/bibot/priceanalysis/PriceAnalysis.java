@@ -9,8 +9,8 @@ public class PriceAnalysis {
 
 	public static BigDecimal getPercentageChange(PriceTimeSeries prices) {
 
-		Price priceAtEndOfWindow = prices.getSeries().getLast();
-		Price priceAtStartOfWindow = prices.getSeries().getFirst();
+		Price priceAtEndOfWindow = prices.getSeries().getFirst();
+		Price priceAtStartOfWindow = prices.getSeries().getLast();
 
 		BigDecimal priceDelta = BigDecimalOperations.subtract(priceAtEndOfWindow.price, priceAtStartOfWindow.price);
 

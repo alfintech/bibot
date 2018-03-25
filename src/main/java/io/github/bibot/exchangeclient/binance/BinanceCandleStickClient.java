@@ -56,9 +56,4 @@ public class BinanceCandleStickClient  extends AbstractBinanceClient implements 
         return new CandleStick(openTime, closeTime, open, low, high, close, volume);
     }
 
-
-    public static void main(String[] args){
-        BinanceCandleStickClient binanceCandleStickClient = new BinanceCandleStickClient(new APICredentials("", ""));
-        CandleStick candleStick = binanceCandleStickClient.getLatestCandleStick(new CurrencyPair("BTC", "ETH"));
-    }
 }
