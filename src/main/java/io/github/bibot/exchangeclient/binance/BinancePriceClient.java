@@ -6,8 +6,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.binance.api.client.BinanceApiRestClient;
-
 import io.github.bibot.domain.CurrencyPair;
 import io.github.bibot.domain.credentials.APICredentials;
 import io.github.bibot.domain.price.Price;
@@ -16,8 +14,6 @@ import io.github.bibot.exchangeclient.PriceClient;
 public class BinancePriceClient extends AbstractBinanceClient implements PriceClient {
 
 	private static final Logger LOG = Logger.getLogger(BinancePriceClient.class);
-
-	private BinanceApiRestClient client;
 
 	public BinancePriceClient(APICredentials credentials) {
 		super(credentials);
