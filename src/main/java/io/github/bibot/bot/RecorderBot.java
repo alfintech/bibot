@@ -4,6 +4,10 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import io.github.bibot.domain.CandleStick;
+import io.github.bibot.exchangeclient.CandleStickClient;
+import io.github.bibot.exchangeclient.OrderClient;
+import io.github.bibot.exchangeclient.PriceClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,13 +24,16 @@ public class RecorderBot {
 	private static final DateFormat DF = new SimpleDateFormat("ddMMyyyy HH:mm:ss");
 	
 	private CurrencyPair currencyPair;
-	private BinancePriceClient priceClient;
-	private BinanceOrderClient orderClient;
+	private PriceClient priceClient;
+	private OrderClient orderClient;
+	private CandleStickClient candleStickClient;
 	
-	public RecorderBot(CurrencyPair currencyPair, BinancePriceClient priceClient, BinanceOrderClient orderClient) {
+	public RecorderBot(CurrencyPair currencyPair, PriceClient priceClient, OrderClient orderClient, CandleStickClient candleStickClient) {
 		this.currencyPair = currencyPair;
 		this.priceClient = priceClient;
 		this.orderClient = orderClient;
+		this.candleStickClient = candleStickClient;
+
 	}
 
 	public void tick() {
@@ -40,6 +47,7 @@ public class RecorderBot {
 				logPrice(priceClient.latestPrice(currencyPair));
 				logAsks(orderClient.getAsks(currencyPair));
 				logBids(orderClient.getBids(currencyPair));
+				logCandleSticks(candleStickClient.getLatestCandleStick(currencyPair));
 			}
 		};	
 		
@@ -61,5 +69,10 @@ public class RecorderBot {
 		for(Order bid : bids) {
 			LOG.info(currencyPair.toString() +"\tBID\t"+ DF.format(bid.datetime) +"\t"+ bid.price.toString() +"\t"+ bid.quantity.doubleValue());
 		}
+	}
+
+	private void logCandleSticks(CandleStick candleStick){
+			//TODO
+			//Fill in logging code
 	}
 }

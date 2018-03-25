@@ -8,8 +8,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.binance.api.client.BinanceApiClientFactory;
-import com.binance.api.client.BinanceApiRestClient;
 import com.binance.api.client.domain.account.Trade;
 import com.binance.api.client.domain.market.OrderBookEntry;
 
@@ -20,18 +18,16 @@ import io.github.bibot.domain.Order;
 import io.github.bibot.domain.credentials.APICredentials;
 import io.github.bibot.exchangeclient.OrderClient;
 
-public class BinanceOrderClient implements OrderClient {
+public class BinanceOrderClient extends AbstractBinanceClient implements OrderClient {
 
 	private static final Logger LOG = Logger.getLogger(BinancePriceClient.class);
 
 	private static final int ORDER_BOOK_DEPTH = 5;
 	private static final int MAX_TRADE_HISTORY = 500;
 
-	private BinanceApiRestClient client;
 
 	public BinanceOrderClient(APICredentials credentials) {
-		BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(credentials.key, credentials.secret);
-		this.client = factory.newRestClient();
+		super(credentials);
 	}
 
 	public synchronized List<Order> getAsks(CurrencyPair pair) {

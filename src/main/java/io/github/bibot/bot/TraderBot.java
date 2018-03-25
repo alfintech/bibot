@@ -1,7 +1,11 @@
 package io.github.bibot.bot;
 
 import java.math.BigDecimal;
+import java.sql.Time;
 import java.util.List;
+import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,12 +26,12 @@ public class TraderBot {
 	private static final Logger LOG = LoggerFactory.getLogger(TraderBot.class);
 	
 	private StrategyFund fund;
-	private CurrencyPair currencyPair;
+	CurrencyPair currencyPair;
 	private PriceClient priceClient;
 	private Strategy strategy;
 	private OrderClient orderClient;
 	private BotState state;
-	
+
 	public TraderBot(Strategy strategy, StrategyFund fund, CurrencyPair currencyPair, PriceClient priceClient, OrderClient orderClient) {
 		this.fund = fund;
 		this.currencyPair = currencyPair;
@@ -58,5 +62,5 @@ public class TraderBot {
 	public List<ExecutedTrade> getTrades() {
 		return orderClient.getTradeHistory(currencyPair);		
 	}
-	
+
 }

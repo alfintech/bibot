@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import io.github.bibot.exchangeclient.binance.BinanceCandleStickClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -49,7 +50,8 @@ public class Application {
 			if(record) {
 				BinancePriceClient priceClient = new BinancePriceClient(new APICredentials(apiKey, apiSecret));
 				BinanceOrderClient orderClient = new BinanceOrderClient(new APICredentials(apiKey, apiSecret));
-				RecorderBot bot = new RecorderBot(new CurrencyPair("BTC", tradeCurrency), priceClient, orderClient);
+				BinanceCandleStickClient candleStickClient = new BinanceCandleStickClient(new APICredentials(apiKey, apiSecret));
+				RecorderBot bot = new RecorderBot(new CurrencyPair("BTC", tradeCurrency), priceClient, orderClient, candleStickClient);
 				bots.add(bot);
 			}
 			if(trade) {
