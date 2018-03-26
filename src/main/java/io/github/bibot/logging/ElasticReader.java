@@ -78,7 +78,7 @@ public class ElasticReader {
 			}
 		});
 
-		return Collections.emptyList();
+		return candleSticks;
 	}
 
 	public void close() {
