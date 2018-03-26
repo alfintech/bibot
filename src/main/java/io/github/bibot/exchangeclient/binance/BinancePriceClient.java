@@ -17,8 +17,6 @@ public class BinancePriceClient extends AbstractBinanceClient implements PriceCl
 
 	private static final Logger LOG = Logger.getLogger(BinancePriceClient.class);
 
-	private BinanceApiRestClient client;
-
 	public BinancePriceClient(APICredentials credentials) {
 		super(credentials);
 	}

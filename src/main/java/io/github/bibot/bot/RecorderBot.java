@@ -4,7 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import io.github.bibot.domain.CandleStick;
+import io.github.bibot.domain.candleStick.CandleStick;
 import io.github.bibot.exchangeclient.CandleStickClient;
 import io.github.bibot.exchangeclient.OrderClient;
 import io.github.bibot.exchangeclient.PriceClient;
@@ -14,8 +14,6 @@ import org.slf4j.LoggerFactory;
 import io.github.bibot.domain.CurrencyPair;
 import io.github.bibot.domain.Order;
 import io.github.bibot.domain.price.Price;
-import io.github.bibot.exchangeclient.binance.BinanceOrderClient;
-import io.github.bibot.exchangeclient.binance.BinancePriceClient;
 
 
 public class RecorderBot {

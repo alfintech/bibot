@@ -2,7 +2,7 @@ package io.github.bibot.exchangeclient.binance;
 
 import com.binance.api.client.domain.market.Candlestick;
 import com.binance.api.client.domain.market.CandlestickInterval;
-import io.github.bibot.domain.CandleStick;
+import io.github.bibot.domain.candleStick.CandleStick;
 import io.github.bibot.domain.CurrencyPair;
 import io.github.bibot.domain.credentials.APICredentials;
 import io.github.bibot.exchangeclient.CandleStickClient;
@@ -52,11 +52,5 @@ public class BinanceCandleStickClient  extends AbstractBinanceClient implements 
         BigDecimal low = BigDecimal.valueOf(Double.parseDouble(candlestick.getLow()));
         BigDecimal volume = BigDecimal.valueOf(Double.parseDouble(candlestick.getVolume()));
         return new CandleStick(openTime, closeTime, open, low, high, close, volume);
-    }
-
-
-    public static void main(String[] args){
-        BinanceCandleStickClient binanceCandleStickClient = new BinanceCandleStickClient(new APICredentials("", ""));
-        CandleStick candleStick = binanceCandleStickClient.getLatestCandleStick(new CurrencyPair("BTC", "ETH"));
     }
 }

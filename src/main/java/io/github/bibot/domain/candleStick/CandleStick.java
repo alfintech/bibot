@@ -1,9 +1,9 @@
-package io.github.bibot.domain;
+package io.github.bibot.domain.candleStick;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class CandleStick {
+public class CandleStick implements Comparable<CandleStick>{
 
      private Date openTime;
      private Date closeTime;
@@ -77,5 +77,10 @@ public class CandleStick {
 
     public void setVolume(BigDecimal volume) {
         this.volume = volume;
+    }
+
+    @Override
+    public int compareTo(CandleStick candleStick) {
+        return this.openTime.compareTo(candleStick.getOpenTime());
     }
 }
