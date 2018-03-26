@@ -1,11 +1,7 @@
 package io.github.bibot.bot;
 
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.util.List;
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

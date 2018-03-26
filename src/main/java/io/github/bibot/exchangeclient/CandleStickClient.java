@@ -1,9 +1,10 @@
 package io.github.bibot.exchangeclient;
 
+import java.util.List;
+
 import io.github.bibot.domain.candleStick.CandleStick;
 import io.github.bibot.domain.CurrencyPair;
 
-import java.util.List;
 
 public interface CandleStickClient {
 

@@ -6,8 +6,6 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import com.binance.api.client.BinanceApiRestClient;
-
 import io.github.bibot.domain.CurrencyPair;
 import io.github.bibot.domain.credentials.APICredentials;
 import io.github.bibot.domain.price.Price;

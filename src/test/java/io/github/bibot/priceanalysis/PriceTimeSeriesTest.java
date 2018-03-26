@@ -84,7 +84,6 @@ public class PriceTimeSeriesTest {
 		PriceTimeSeries prices = new PriceTimeSeries();
 		Date arbitaryTime = Calendar.getInstance().getTime();
 		
-		prices.addPrice(new Price(new BigDecimal(100), arbitaryTime));
 		prices.addPrice(new Price(new BigDecimal(200), arbitaryTime));
 		prices.addPrice(new Price(new BigDecimal(300), arbitaryTime));
 		prices.addPrice(new Price(new BigDecimal(400), arbitaryTime));

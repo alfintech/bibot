@@ -1,18 +1,20 @@
 package io.github.bibot.exchangeclient.binance;
 
-import com.binance.api.client.domain.market.Candlestick;
-import com.binance.api.client.domain.market.CandlestickInterval;
-import io.github.bibot.domain.candleStick.CandleStick;
-import io.github.bibot.domain.CurrencyPair;
-import io.github.bibot.domain.credentials.APICredentials;
-import io.github.bibot.exchangeclient.CandleStickClient;
-import org.apache.log4j.Logger;
-
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.binance.api.client.domain.market.Candlestick;
+import com.binance.api.client.domain.market.CandlestickInterval;
+
+import io.github.bibot.domain.candleStick.CandleStick;
+import io.github.bibot.domain.CurrencyPair;
+import io.github.bibot.domain.credentials.APICredentials;
+import io.github.bibot.exchangeclient.CandleStickClient;
 
 public class BinanceCandleStickClient  extends AbstractBinanceClient implements CandleStickClient{
 
@@ -53,4 +55,5 @@ public class BinanceCandleStickClient  extends AbstractBinanceClient implements 
         BigDecimal volume = BigDecimal.valueOf(Double.parseDouble(candlestick.getVolume()));
         return new CandleStick(openTime, closeTime, open, low, high, close, volume);
     }
+
 }

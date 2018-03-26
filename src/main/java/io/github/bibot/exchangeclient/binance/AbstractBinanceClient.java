@@ -6,7 +6,7 @@ import io.github.bibot.domain.credentials.APICredentials;
 
 public abstract class AbstractBinanceClient {
 
-    BinanceApiRestClient client;
+    protected BinanceApiRestClient client;
 
     public AbstractBinanceClient(APICredentials credentials){
         BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance(credentials.key, credentials.secret);
