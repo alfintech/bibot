@@ -2,9 +2,12 @@ package io.github.bibot.priceanalysis;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.math.RoundingMode;
 
 public class BigDecimalOperations {
 
+	private static int SUPPORTED_SCALE = 10;
+	
 	public static BigDecimal multiply(BigDecimal value, BigDecimal multiplicand) {
 		return value.multiply(multiplicand, MathContext.DECIMAL64);
 	}
@@ -29,4 +32,7 @@ public class BigDecimalOperations {
 		return value1.doubleValue() < value2.doubleValue();
 	}
 	
+	public static double toDouble(BigDecimal value) {
+		return value.setScale(SUPPORTED_SCALE, RoundingMode.HALF_UP).doubleValue();
+	}
 }

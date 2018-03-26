@@ -13,9 +13,10 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import io.github.bibot.domain.CandleStick;
 import io.github.bibot.domain.CurrencyPair;
+import io.github.bibot.domain.candleStick.CandleStick;
 import io.github.bibot.domain.price.Price;
+import io.github.bibot.priceanalysis.BigDecimalOperations;
 
 public class ElasticPublisher {
 
@@ -40,7 +41,7 @@ public class ElasticPublisher {
 				.startObject()
 				.field("currencyPair", currencyPair.toString())
 				.field("date", price.datetime)
-				.field("price", price.price)
+				.field("price", BigDecimalOperations.toDouble(price.price))
 				.endObject();
 		
 		IndexResponse response = client.prepareIndex("raw", "price", currencyPair.toString()+price.datetime.getTime()).setSource(builder).get();
@@ -54,11 +55,11 @@ public class ElasticPublisher {
 				.field("currencyPair", currencyPair.toString())
 				.field("openDate", candleStick.getOpenTime())
 				.field("closeDate", candleStick.getCloseTime())
-				.field("openPrice", candleStick.getOpen())
-				.field("closePrice", candleStick.getClose())
-				.field("highPrice", candleStick.getHigh())
-				.field("lowPrice", candleStick.getLow())
-				.field("volume", candleStick.getVolume())
+				.field("openPrice", BigDecimalOperations.toDouble(candleStick.getOpen()))
+				.field("closePrice", BigDecimalOperations.toDouble(candleStick.getClose()))
+				.field("highPrice", BigDecimalOperations.toDouble(candleStick.getHigh()))
+				.field("lowPrice", BigDecimalOperations.toDouble(candleStick.getLow()))
+				.field("volume", BigDecimalOperations.toDouble(candleStick.getVolume()))
 				.endObject();
 		
 		IndexResponse response = client.prepareIndex("candlestick", "minutely", currencyPair.toString()+candleStick.getOpenTime().getTime()).setSource(builder).get();
