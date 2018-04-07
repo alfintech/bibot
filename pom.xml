@@ -3,12 +3,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>io.github.bibot</groupId>
-	<artifactId>bibot</artifactId>
+	<groupId>io.altanalytics</groupId>
+	<artifactId>altanalytics</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
 
-	<name>bibot</name>
+	<name>altanalytics</name>
 	<description>TBC</description>
 
 	<properties>
@@ -60,6 +60,24 @@
 			<groupId>org.ta4j</groupId>
 			<artifactId>ta4j-core</artifactId>
 			<version>0.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
 		</dependency>
 
 		<dependency>
